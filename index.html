@@ -372,9 +372,13 @@ const SEASONS = [
 /* Membres : ajoutez photo:"img/nom.jpg" et name:"Prénom Nom".
    Plus tard, page:"membres/prenom.html" activera le lien. */
 const MEMBERS = [
+  {name:"Maxime Lanouette"},
+  {name:"Tom Brassard"},
+  {name:"Lilou Mallette"},
+  {name:"Michael Demers"},
+  {name:"Thomas Gaboury"},
+  {name:"Léonie Brousseau"},
   {name:"Antoine Létourneau", role:"Apartöne · visuels"},
-  {name:"Nom à venir"},{name:"Nom à venir"},{name:"Nom à venir"},
-  {name:"Nom à venir"},{name:"Nom à venir"},{name:"Nom à venir"},
 ];
 
 /* ============================================================ */
@@ -407,7 +411,7 @@ renderGallery();
 
 // Membres
 $('#bubbles').innerHTML = MEMBERS.map(m=>{
-  const inner = `<div class="ph">${m.photo?`<img src="${m.photo}" alt="">`:`<span class="q">?</span>`}</div><b>${esc(m.name)}</b>${m.role?`<small>${esc(m.role)}</small>`:''}`;
+  const inner = `<div class="ph">${m.photo?`<img src="${m.photo}" alt="">`:`<span class="q">${esc(m.name.split(' ').map(w=>w[0]).join(''))}</span>`}</div><b>${esc(m.name)}</b>${m.role?`<small>${esc(m.role)}</small>`:''}`;
   return m.page ? `<a class="bubble" href="${m.page}">${inner}</a>` : `<div class="bubble">${inner}</div>`;
 }).join('');
 
